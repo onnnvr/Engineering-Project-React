@@ -1,5 +1,8 @@
       
 {
+  "Dashboard": "Dashboard",
+  "AdminPanel": "Admin Panel",
+  "EmployeePanel": "Employee Panel",
   "E-Commerce Overview": "E-Commerce Overview",
   "Monitoring your business health and inventory.": "Monitoring your business health and inventory.",
   "New Product": "New Product",

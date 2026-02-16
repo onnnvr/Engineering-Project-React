@@ -5,6 +5,7 @@ import { Menu } from "../../Context/MenuContext";
 import Dropdown from "./Dropdown";
 import NotificationBell from "./NotificationBell";
 import { useTranslation } from "react-i18next";
+import { t } from "i18next";
 
 export default function TopBar() {
     const menu = useContext(Menu);
@@ -24,8 +25,8 @@ export default function TopBar() {
                 <div className="flex items-center gap-3 cursor-pointer" onClick={() => window.location.pathname = "/dashboard"}>
                     <div className="w-10 h-10 bg-blue-600 rounded-xl flex items-center justify-center text-white font-black shadow-lg shadow-blue-200 transition-transform active:scale-95">E</div>
                     <div className="hidden sm:block">
-                        <h1 className="text-[18px] font-black text-gray-800 leading-none">E-PRO</h1>
-                        <span className="text-[10px] text-blue-600 font-bold uppercase tracking-[1px]">Commerce Admin</span>
+                        <h1 className="text-[18px] font-black text-gray-800 leading-none">{t('Dashboard')}</h1>
+                        <span className="text-[10px] text-blue-600 font-bold uppercase tracking-[1px]">{t('AdminPanel') }</span>
                     </div>
                 </div>
                 
