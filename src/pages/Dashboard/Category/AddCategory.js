@@ -22,7 +22,7 @@ export default function AddCategory() {
   console.log(allProducts)
 
   useEffect(() => {
-    Axios.get(`${PRODUCTS}`).then(res => setAllProducts(res.data.data || res.data)).catch(err => console.log(err));
+    Axios.get(`${PRODUCTS}`).then(res => {setAllProducts(res.data.data || res.data); console.log(res.data.data)}).catch(err => console.log(err));
   }, []);
 
   async function handleImageChange(e) {
