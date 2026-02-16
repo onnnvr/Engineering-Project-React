@@ -1,4 +1,4 @@
-export const baseUrl = 'http://192.168.1.12:1337/api';
+export const baseUrl = 'https://engineering-project-strapi-production.up.railway.app/api';
 
 export const REGISTER = '/auth/local/register';
 
