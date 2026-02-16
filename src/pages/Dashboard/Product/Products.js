@@ -143,7 +143,7 @@ export default function Products() {
                         ))}
                       </div>
                     </td>
-                    <td className="px-6 py-4 text-center font-bold text-gray-800 text-sm">{product.price}{t('egp')}</td>
+                    <td className="px-6 py-4 text-center font-bold text-gray-800 text-sm">{product.price} {t('egp')}</td>
                     <td className="px-6 py-4 text-center">
                       <span className={`inline-flex items-center gap-2 px-3 py-1 rounded-full border text-xs font-black ${totalStock > 0 ? 'bg-green-50 text-green-700 border-green-100' : 'bg-red-50 text-red-600 border-red-100'}`}>
                         {totalStock}

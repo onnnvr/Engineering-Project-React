@@ -19,6 +19,8 @@ export default function AddCategory() {
   const [loading, setLoading] = useState(false);
   const nav = useNavigate();
 
+  console.log(allProducts)
+
   useEffect(() => {
     Axios.get(`${PRODUCTS}`).then(res => setAllProducts(res.data.data || res.data)).catch(err => console.log(err));
   }, []);
