@@ -22,8 +22,8 @@ export default function AddCategory() {
   console.log(allProducts)
 
   useEffect(() => {
-    Axios.get(`${PRODUCTS}`).then(res => {setAllProducts(res.data.data || res.data); console.log(res.data.data)}).catch(err => console.log(err));
-  }, []);
+    Axios.get(`${PRODUCTS}?filters[title][$contains]=${searchQuery}`).then(res => {setAllProducts(res.data.data || res.data); console.log(res.data.data)}).catch(err => console.log(err));
+  }, [searchQuery]);
 
   async function handleImageChange(e) {
     const file = e.target.files[0];
@@ -95,7 +95,7 @@ export default function AddCategory() {
                <input type="text" placeholder={t('Search...')} onChange={(e) => setSearchQuery(e.target.value)} className="w-full pl-9 py-2.5 bg-gray-50 border-none rounded-xl text-xs outline-none focus:ring-1 focus:ring-blue-500/10" />
             </div>
             <div className="space-y-2 max-h-[350px] overflow-y-auto pr-1 custom-scrollbar">
-              {allProducts.filter(p => (p.title || p.attributes?.title)?.toLowerCase().includes(searchQuery.toLowerCase())).map(prod => (
+              {allProducts.map(prod => (
                 <label key={prod.id} className={`flex items-center gap-3 p-3 rounded-2xl cursor-pointer border transition-all ${selectedProducts.includes(prod.id) ? 'bg-blue-50 border-blue-100' : 'bg-white border-transparent'}`}>
                   <input type="checkbox" className="hidden" checked={selectedProducts.includes(prod.id)} onChange={() => handleCheckboxChange(prod.id)} />
                   <div className={`w-5 h-5 rounded-md border flex items-center justify-center ${selectedProducts.includes(prod.id) ? 'bg-blue-600 border-blue-600 text-white' : 'border-gray-300'}`}>
