@@ -1,0 +1,145 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: changa, sans-serif !important;
+}
+
+/* .landing-bg {
+  background-image: url(./Assets/Landing.png);
+  background-size: cover;
+  position: relative;
+} */
+
+input:disabled {
+  background-color: #e5e5e5;
+  color: #777;
+  cursor: not-allowed;
+  opacity: 1;
+  user-select: none;
+}
+
+
+.label-change {
+  position: absolute;
+  top: -20px;
+  left: 0;
+  font-size: 13px;
+  color: gray;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+@keyframes rotating-spinner {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.spinner {
+  animation: rotating-spinner 1s linear infinite;
+}
+
+.side-bar-item.active {
+  background-color: #f2f3fe;
+  color: #038edc;
+}
+
+.inner-progress::after {
+  content: attr(percent);
+  position: absolute;
+  top: -25px;
+  right: 0;
+  background-color: rgb(116, 116, 116);
+  color: white;
+  width: 38px;
+  height: 23px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  border-radius: 3px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
+}
+
+.custom-bg {
+  background-image: url("../src/Assets/Landing.png");
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+}
+
+.custom-search {
+  color: rgba(0, 0, 0, 0.5) !important;
+}
+
+.custom-search:focus {
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1) !important;
+  border: rgba(0, 0, 0, 0.1) !important;
+  outline: rgba(0, 0, 0, 0.1) !important;
+}
+
+
+/* Container السكرول اللانهائي */
+.scroll-wrapper {
+  display: flex;
+  width: max-content;
+  /* مهم جداً لفرش العناصر */
+  animation: infinite-scroll 40s linear infinite;
+}
+
+/* الحركة اللانهائية - بنتحرك لنص عرض الـ Wrapper بالظبط */
+@keyframes infinite-scroll {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    /* بنستخدم الموجب 50% عشان إحنا في وضع RTL */
+    transform: translateX(50%);
+  }
+}
+
+/* يوقف الحركة لما الماوس يلمس الكارت */
+.pause-on-hover:hover .scroll-wrapper {
+  animation-play-state: paused;
+}
+
+/* تأثير الـ Bounce والتفاعل */
+.product-bounce-hover {
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.product-bounce-hover:hover {
+  transform: translateY(-10px);
+}
+
+/* لمنع انكسار النص */
+.line-clamp-title {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+[dir="rtl"] .fa-chevron-left {
+  transform: rotate(180deg);
+}
+
+[dir="rtl"] .fa-arrow-right {
+  transform: rotate(180deg);
+}
+
+header {
+  direction: ltr;
+}
