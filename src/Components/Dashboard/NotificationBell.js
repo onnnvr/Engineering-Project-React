@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBell, faCircle } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 import { Axios } from "../../Api/Axios";
+import { baseUrl } from "../../Api/Api";
 
 export default function NotificationBell() {
     const [notifications, setNotifications] = useState([]);
@@ -12,7 +13,7 @@ export default function NotificationBell() {
     const fetchNotifications = async () => {
         try {
             // بنجيب آخر 5 تنبيهات غير مقروءة
-            const data = await Axios.get('http://localhost:1337/api/notifications?filters[isRead][$eq]=false&sort=createdAt:desc&pagination[limit]=5');
+            const data = await Axios.get(`${baseUrl}/notifications?filters[isRead][$eq]=false&sort=createdAt:desc&pagination[limit]=5`);
             if (data.data) {
                 setNotifications(data.data.data);
                 setUnreadCount(data.data.data.length);
