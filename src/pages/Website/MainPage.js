@@ -17,7 +17,7 @@ export default function MainPage() {
         setProducts([]); 
         setActiveSub(null); 
 
-        const res = await Axios.get(`${CATEGORIES}?filters[pages][name][$eq]=${pageName}`, {
+        const res = await Axios.get(`${CATEGORIES}?filters[pages][name][$eq]=${pageName}&pagination[pageSize]=100`, {
           params: {
             populate: {
               products: { populate: { images: true } },
@@ -46,8 +46,9 @@ export default function MainPage() {
     const fetchProducts = async () => {
       setLoading(true);
       try {
-        const res = await Axios.get(`${PRODUCTS}?populate=*&filters[categories][documentId][$eq]=${activeSub}`);
+        const res = await Axios.get(`${PRODUCTS}?populate=*&filters[categories][documentId][$eq]=${activeSub}?&pagination[pageSize]=100`);
         setProducts(res.data.data);
+        console.log(res.data.data);
       } catch (err) {
         console.error("Error fetching products", err);
       } finally {

@@ -22,7 +22,7 @@ export default function AddCategory() {
   console.log(allProducts)
 
   useEffect(() => {
-    Axios.get(`${PRODUCTS}?filters[title][$contains]=${searchQuery}`).then(res => {setAllProducts(res.data.data || res.data); console.log(res.data.data)}).catch(err => console.log(err));
+    Axios.get(`${PRODUCTS}?filters[title][$contains]=${searchQuery}&pagination[pageSize]=100`).then(res => {setAllProducts(res.data.data || res.data); console.log(res.data.data)}).catch(err => console.log(err));
   }, [searchQuery]);
 
   async function handleImageChange(e) {

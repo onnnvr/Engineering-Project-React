@@ -10,7 +10,7 @@ export default function HomePage() {
     const [products, setProducts] = useState([])
 
     useEffect(() => {
-        Axios.get(`/pages?filters[name][$eq]=featured-products`, {
+        Axios.get(`/pages?filters[name][$eq]=featured-products&pagination[pageSize]=100`, {
             params: {
                 populate: {
                     products: {
