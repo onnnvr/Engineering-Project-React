@@ -114,19 +114,33 @@ export default function Product() {
     }
 
     async function updateStock(warehouseId, currentInventory, newQuantity) {
-        if (newQuantity < 0) return;
+        const qty = parseInt(newQuantity);
+        if (isNaN(qty) || qty < 0) return; // منع القيم السالبة أو غير الرقمية
+
         setLoading(true);
         try {
             if (currentInventory) {
-                await Axios.put(`/inventories/${currentInventory.documentId}`, { data: { quantity: newQuantity } });
+                // تحديث مخزن موجود أصلاً
+                await Axios.put(`/inventories/${currentInventory.documentId}`, { 
+                    data: { quantity: qty } 
+                });
             } else {
+                // إنشاء سجل مخزن جديد لهذا المستودع
                 await Axios.post(`/inventories`, { 
-                    data: { quantity: newQuantity, product: { connect: [id] }, warehouse: warehouseId } 
+                    data: { 
+                        quantity: qty, 
+                        product: { connect: [id] }, 
+                        warehouse: warehouseId 
+                    } 
                 });
             }
+            // تحديث البيانات في الصفحة بعد النجاح
             const updated = await Axios.get(`${PRODUCTS}/${id}?populate[inventories][populate]=warehouse`);
             setInventories(updated.data.data.inventories);
-        } catch (err) { console.log(err); }
+            alert(t('Stock Updated Successfully')); // اختياري
+        } catch (err) { 
+            console.log(err); 
+        }
         setLoading(false);
     }
 
@@ -210,14 +224,31 @@ export default function Product() {
                                         {allWarehouses.map((wh) => {
                                             const inv = inventories.find(i => i.warehouse?.id === wh.id);
                                             const qty = inv ? inv.quantity : 0;
+                                            
                                             return (
                                                 <tr key={wh.id}>
                                                     <td className="px-3 py-4 font-bold text-gray-700 text-xs">{wh.title}</td>
-                                                    <td className="px-3 py-4 text-center font-black text-blue-600">{qty}</td>
+                                                    <td className="px-3 py-4 text-center">
+                                                        <input 
+                                                            type="number" 
+                                                            defaultValue={qty} 
+                                                            min="0"
+                                                            id={`qty-${wh.id}`} // معرف فريد لكل مستودع
+                                                            className="w-16 px-2 py-1 border border-gray-200 rounded-lg text-center font-black text-blue-600 focus:ring-2 focus:ring-blue-500/20 outline-none"
+                                                        />
+                                                    </td>
                                                     <td className="px-3 py-4">
-                                                        <div className="flex justify-end gap-1.5">
-                                                            <button type="button" onClick={() => updateStock(wh.id, inv, qty + 1)} className="w-7 h-7 bg-blue-50 text-blue-600 rounded-lg hover:bg-blue-600 hover:text-white transition-all"><FontAwesomeIcon icon={faPlus} size="xs" /></button>
-                                                            <button type="button" onClick={() => updateStock(wh.id, inv, qty - 1)} className="w-7 h-7 bg-red-50 text-red-600 rounded-lg hover:bg-red-600 hover:text-white transition-all"><FontAwesomeIcon icon={faMinus} size="xs" /></button>
+                                                        <div className="flex justify-end">
+                                                            <button 
+                                                                type="button" 
+                                                                onClick={() => {
+                                                                    const val = document.getElementById(`qty-${wh.id}`).value;
+                                                                    updateStock(wh.id, inv, val);
+                                                                }} 
+                                                                className="px-3 py-1 bg-green-50 text-green-600 rounded-lg hover:bg-green-600 hover:text-white transition-all text-xs font-bold"
+                                                            >
+                                                                {t('Update')}
+                                                            </button>
                                                         </div>
                                                     </td>
                                                 </tr>
