@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { CATEGORIES, CATEGORY } from "../../../Api/Api";
+import { CATEGORIES, CATEGORY, URL } from "../../../Api/Api";
 import { Link, useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash, faPenToSquare, faPlus, faSearch, faLayerGroup } from "@fortawesome/free-solid-svg-icons";
@@ -107,7 +107,7 @@ export default function Categories() {
                   <td className="px-6 py-4">
                     <div className="flex items-center gap-3">
                       <div className="w-10 h-10 rounded-xl bg-gray-100 overflow-hidden flex items-center justify-center border group-hover:border-blue-200">
-                        {cat.image ? <img src={`http://localhost:1337${cat.image.url}`} className="w-full h-full object-cover" /> : <FontAwesomeIcon icon={faLayerGroup} className="text-gray-400" />}
+                        {cat.image ? <img src={`${URL}${cat.image.url}`} className="w-full h-full object-cover" /> : <FontAwesomeIcon icon={faLayerGroup} className="text-gray-400" />}
                       </div>
                       <span className="font-bold text-gray-700">{cat.title}</span>
                     </div>
@@ -135,7 +135,7 @@ export default function Categories() {
               <div key={cat.id} onClick={() => navigate(`${cat.documentId}`)} className="p-4 flex items-center justify-between active:bg-gray-50">
                 <div className="flex items-center gap-4">
                   <div className="w-12 h-12 rounded-2xl bg-gray-50 border overflow-hidden">
-                    {cat.image ? <img src={`http://localhost:1337${cat.image.url}`} className="w-full h-full object-cover" /> : <div className="w-full h-full flex items-center justify-center text-gray-300"><FontAwesomeIcon icon={faLayerGroup} /></div>}
+                    {cat.image ? <img src={`${URL}${cat.image.url}`} className="w-full h-full object-cover" /> : <div className="w-full h-full flex items-center justify-center text-gray-300"><FontAwesomeIcon icon={faLayerGroup} /></div>}
                   </div>
                   <div>
                     <h4 className="font-bold text-gray-800 text-sm">{cat.title}</h4>

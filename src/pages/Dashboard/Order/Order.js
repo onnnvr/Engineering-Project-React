@@ -10,6 +10,7 @@ import {
     faCheckCircle, faClock, faMoneyBillWave, faUserShield,
     faUndoAlt
 } from "@fortawesome/free-solid-svg-icons";
+import { URL } from "../../../Api/Api";
 
 export default function Order() {
     const { t } = useTranslation();
@@ -162,7 +163,7 @@ export default function Order() {
                                     <div className="flex gap-4">
                                         <div className="w-16 h-16 rounded-xl overflow-hidden bg-white border flex-shrink-0">
                                             {item.product?.images?.[0] && (
-                                                <img src={`http://localhost:1337${item.product.images[0].url}`} className="w-full h-full object-cover" alt="" />
+                                                <img src={`${URL}${item.product.images[0].url}`} className="w-full h-full object-cover" alt="" />
                                             )}
                                         </div>
                                         <div className="flex-1 min-w-0">
@@ -198,7 +199,7 @@ export default function Order() {
                                                 <div className="flex items-center gap-4">
                                                     <div className="w-14 h-14 rounded-xl overflow-hidden bg-gray-100 border border-gray-100 flex-shrink-0">
                                                         {item.product?.images?.[0] && (
-                                                            <img src={`http://localhost:1337${item.product.images[0].url}`} className="w-full h-full object-cover" alt="" />
+                                                            <img src={`${URL}${item.product.images[0].url}`} className="w-full h-full object-cover" alt="" />
                                                         )}
                                                     </div>
                                                     <div>

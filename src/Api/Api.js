@@ -1,3 +1,5 @@
+export const URL = 'https://engineering-project-strapi-production.up.railway.app';
+
 export const baseUrl = 'https://engineering-project-strapi-production.up.railway.app/api';
 
 export const REGISTER = '/auth/local/register';

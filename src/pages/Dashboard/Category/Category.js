@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import { useTranslation } from "react-i18next";
 import { Axios } from "../../../Api/Axios";
-import { CATEGORIES, PRODUCTS } from "../../../Api/Api";
+import { CATEGORIES, PRODUCTS, URL } from "../../../Api/Api";
 import { useNavigate, useParams } from "react-router-dom";
 import LoadingScreen from "../../../Components/Loading/Loading";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -29,7 +29,7 @@ export default function Category() {
             const category = catData.data.data;
             setTitle(category.title);
             if (category.image) {
-                setPreview("http://localhost:1337" + category.image.url);
+                setPreview(`${URL}${category.image.url}`);
                 setImageId(category.image.id);
             }
             if (category.products) setSelectedProducts(category.products.map(p => p.id));

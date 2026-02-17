@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { Axios } from "../../../Api/Axios"; 
-import { baseUrl, REGISTER } from "../../../Api/Api";
+import { baseUrl, REGISTER, URL } from "../../../Api/Api";
 import formImage from "../../../form.jpg"; 
 import LoadingScreen from "../../../Components/Loading/Loading";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -126,7 +126,7 @@ export default function SignUp() {
                                 <div className="relative flex justify-center text-xs uppercase"><span className="bg-[#121212] px-2 text-gray-500 font-bold tracking-widest">أو بواسطة</span></div>
                             </div>
 
-                            <a href="http://localhost:1337/api/connect/google?callback=http://localhost:3000/connect/google/redirect" className="w-full bg-white hover:bg-gray-100 text-black font-bold py-3 rounded-xl transition-all flex items-center justify-center gap-3 active:scale-[0.98]">
+                            <a href={`${baseUrl}/connect/google?callback=${URL}/connect/google/redirect`} className="w-full bg-white hover:bg-gray-100 text-black font-bold py-3 rounded-xl transition-all flex items-center justify-center gap-3 active:scale-[0.98]">
                                 <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" className="w-5 h-5" alt="google" />
                                 <span className="text-xs sm:text-sm">سجل دخولك بجوجل</span>
                             </a>

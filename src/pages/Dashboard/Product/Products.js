@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { PRODUCTS } from "../../../Api/Api";
+import { PRODUCTS, URL } from "../../../Api/Api";
 import { Link, useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash, faPenToSquare, faPlus, faSearch, faBoxOpen, faLayerGroup, faWarehouse } from "@fortawesome/free-solid-svg-icons";
@@ -123,7 +123,7 @@ export default function Products() {
                       <div className="flex items-center gap-4">
                         <div className="w-12 h-12 rounded-xl bg-gray-100 border border-gray-200 overflow-hidden shrink-0">
                           {product.images?.[0] ? (
-                             <img src={`http://localhost:1337${product.images[0].url}`} className="w-full h-full object-cover" alt="" />
+                             <img src={`${URL}${product.images[0].url}`} className="w-full h-full object-cover" alt="" />
                           ) : (
                             <div className="w-full h-full flex items-center justify-center text-gray-300 text-lg"><FontAwesomeIcon icon={faBoxOpen} /></div>
                           )}
@@ -169,7 +169,7 @@ export default function Products() {
              return (
                <div key={product.id} onClick={() => navigate(`/dashboard/products/${product.documentId}`)} className="p-4 active:bg-gray-50 flex items-center gap-4">
                   <div className="w-16 h-16 rounded-2xl bg-gray-100 border border-gray-200 overflow-hidden shrink-0">
-                    {product.images?.[0] ? <img src={`http://localhost:1337${product.images[0].url}`} className="w-full h-full object-cover" alt="" /> : <div className="w-full h-full flex items-center justify-center text-gray-200"><FontAwesomeIcon icon={faBoxOpen} size="lg"/></div>}
+                    {product.images?.[0] ? <img src={`${URL}${product.images[0].url}`} className="w-full h-full object-cover" alt="" /> : <div className="w-full h-full flex items-center justify-center text-gray-200"><FontAwesomeIcon icon={faBoxOpen} size="lg"/></div>}
                   </div>
                   <div className="flex-1 min-w-0">
                     <h3 className="font-bold text-gray-800 truncate text-sm mb-1">{product.title}</h3>

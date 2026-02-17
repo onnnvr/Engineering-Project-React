@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react"
 import { useTranslation } from "react-i18next";
 import { Axios } from "../../../Api/Axios";
-import { CATEGORIES, PRODUCTS } from "../../../Api/Api";
+import { CATEGORIES, PRODUCTS, URL } from "../../../Api/Api";
 import LoadingScreen from "../../../Components/Loading/Loading";
 import { useNavigate, useParams, Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -301,7 +301,7 @@ export default function Product() {
                         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
                             {imagesFromServer.map((img, index) => (
                                 <div key={index} className="group relative aspect-square rounded-2xl overflow-hidden border border-gray-100 shadow-sm">
-                                    <img src={`http://localhost:1337${img.url}`} className="w-full h-full object-cover" alt="" />
+                                    <img src={`${URL}${img.url}`} className="w-full h-full object-cover" alt="" />
                                     <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
                                         <button type="button" onClick={() => deleteImage(img.id)} className="bg-red-500 text-white p-2.5 rounded-xl hover:scale-110 transition-transform"><FontAwesomeIcon icon={faTrash} /></button>
                                     </div>

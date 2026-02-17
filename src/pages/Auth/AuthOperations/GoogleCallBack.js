@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
+import { baseUrl } from "../../../Api/Api";
 
 export default function GoogleCallback() {
     const location = useLocation();
@@ -12,7 +13,7 @@ export default function GoogleCallback() {
         if (accessToken) {
             // 2. نكلم Strapi عشان نستبدل توكن جوجل بـ JWT بتاعنا
             // استخدمنا fetch العادي عشان نبعد عن مشاكل axios و Vite حالياً
-            fetch(`http://localhost:1337/api/auth/google/callback${location.search}`)
+            fetch(`${baseUrl}/auth/google/callback${location.search}`)
                 .then((res) => res.json())
                 .then((data) => {
                     if (data.jwt) {

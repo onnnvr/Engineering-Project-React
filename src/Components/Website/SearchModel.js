@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch, faTimes, faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
-import { PRODUCTS } from "../../Api/Api";
+import { PRODUCTS, URL } from "../../Api/Api";
 import { Axios } from "../../Api/Axios";
 
 export default function SearchModel({ isOpen, onClose }) {
@@ -106,7 +106,7 @@ export default function SearchModel({ isOpen, onClose }) {
                                     <div className="w-16 h-16 bg-white/5 rounded-xl flex-shrink-0 p-2 border border-white/5">
                                         {product.images?.[0] ? (
                                             <img 
-                                                src={`http://localhost:1337${product.images[0].url}`} 
+                                                src={`${URL}${product.images[0].url}`} 
                                                 alt={product.title} 
                                                 className="w-full h-full object-contain group-hover:scale-110 transition-transform duration-300"
                                             />
