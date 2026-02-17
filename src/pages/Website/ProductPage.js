@@ -71,7 +71,7 @@ export default function ProductPage() {
             <div className="bg-gray-50 rounded-3xl p-8 flex justify-center items-center border border-gray-100 overflow-hidden">
               {product.images?.[activeImage] ? (
                 <img 
-                  src={`http://192.168.1.12:1337${product.images[activeImage].url}`} 
+                  src={`${product.images[activeImage].url}`} 
                   alt={product.title} 
                   className="max-h-[400px] object-contain"
                 />
@@ -91,7 +91,7 @@ export default function ProductPage() {
                       activeImage === index ? "border-red-600 bg-white" : "border-transparent bg-gray-50"
                     }`}
                   >
-                    <img src={`http://192.168.1.12:1337${img.url}`} className="w-full h-full object-contain" alt="" />
+                    <img src={`${img.url}`} className="w-full h-full object-contain" alt="" />
                   </button>
                 ))}
               </div>

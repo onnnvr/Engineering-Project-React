@@ -126,7 +126,7 @@ export default function MainPage() {
                   <div className="h-52 flex items-center justify-center mb-4 bg-gray-50/50 rounded-xl p-2">
                     {item.images?.[0] ? (
                       <img 
-                        src={`http://192.168.1.12:1337${item.images[0].url}`} 
+                        src={`${item.images[0].url}`} 
                         alt={item.title} 
                         className="max-h-full max-w-full object-contain" // شلنا الـ scale-110
                       />

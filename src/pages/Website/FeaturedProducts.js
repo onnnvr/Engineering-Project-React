@@ -28,7 +28,7 @@ export default function FeaturedProducts({ products }) {
               {/* صورة المنتج */}
               <div className="h-44 w-full flex items-center justify-center mb-6">
                 <img
-                  src={`http://192.168.1.12:1337${product.images?.[0]?.url}`}
+                  src={`${product.images?.[0]?.url}`}
                   alt={product.title}
                   className="max-h-full object-contain group-hover:scale-110 transition-transform duration-500"
                 />
