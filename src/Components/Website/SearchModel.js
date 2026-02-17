@@ -106,7 +106,7 @@ export default function SearchModel({ isOpen, onClose }) {
                                     <div className="w-16 h-16 bg-white/5 rounded-xl flex-shrink-0 p-2 border border-white/5">
                                         {product.images?.[0] ? (
                                             <img 
-                                                src={`${URL}${product.images[0].url}`} 
+                                                src={`${product.images[0].url}`} 
                                                 alt={product.title} 
                                                 className="w-full h-full object-contain group-hover:scale-110 transition-transform duration-300"
                                             />

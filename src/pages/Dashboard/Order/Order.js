@@ -199,7 +199,7 @@ export default function Order() {
                                                 <div className="flex items-center gap-4">
                                                     <div className="w-14 h-14 rounded-xl overflow-hidden bg-gray-100 border border-gray-100 flex-shrink-0">
                                                         {item.product?.images?.[0] && (
-                                                            <img src={`${URL}${item.product.images[0].url}`} className="w-full h-full object-cover" alt="" />
+                                                            <img src={`${item.product.images[0].url}`} className="w-full h-full object-cover" alt="" />
                                                         )}
                                                     </div>
                                                     <div>

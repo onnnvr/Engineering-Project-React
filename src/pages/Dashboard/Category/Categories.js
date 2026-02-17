@@ -135,7 +135,7 @@ export default function Categories() {
               <div key={cat.id} onClick={() => navigate(`${cat.documentId}`)} className="p-4 flex items-center justify-between active:bg-gray-50">
                 <div className="flex items-center gap-4">
                   <div className="w-12 h-12 rounded-2xl bg-gray-50 border overflow-hidden">
-                    {cat.image ? <img src={`${URL}${cat.image.url}`} className="w-full h-full object-cover" /> : <div className="w-full h-full flex items-center justify-center text-gray-300"><FontAwesomeIcon icon={faLayerGroup} /></div>}
+                    {cat.image ? <img src={`${cat.image.url}`} className="w-full h-full object-cover" /> : <div className="w-full h-full flex items-center justify-center text-gray-300"><FontAwesomeIcon icon={faLayerGroup} /></div>}
                   </div>
                   <div>
                     <h4 className="font-bold text-gray-800 text-sm">{cat.title}</h4>

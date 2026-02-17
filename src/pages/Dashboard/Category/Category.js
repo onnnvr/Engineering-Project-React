@@ -29,7 +29,7 @@ export default function Category() {
             const category = catData.data.data;
             setTitle(category.title);
             if (category.image) {
-                setPreview(`${URL}${category.image.url}`);
+                setPreview(`${category.image.url}`);
                 setImageId(category.image.id);
             }
             if (category.products) setSelectedProducts(category.products.map(p => p.id));
