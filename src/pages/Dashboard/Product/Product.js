@@ -200,7 +200,7 @@ export default function Product() {
                     <div className="bg-white p-5 md:p-8 rounded-3xl border border-gray-100 shadow-sm space-y-5">
                         <label className="text-[10px] font-black text-blue-600 uppercase tracking-widest">{t('General Information')}</label>
                         <input required value={title} onChange={(e) => setTitle(e.target.value)} placeholder={t('Product Title')} className="w-full px-4 py-3.5 bg-gray-50 border border-gray-100 rounded-2xl focus:ring-2 focus:ring-blue-500/20 outline-none transition-all text-base font-bold" />
-                        <textarea required value={description} onChange={(e) => setDescription(e.target.value)} rows={5} placeholder={t('Product Description')} className="w-full px-4 py-3.5 bg-gray-50 border border-gray-100 rounded-2xl focus:ring-2 focus:ring-blue-500/20 outline-none transition-all text-sm" />
+                        <textarea value={description} onChange={(e) => setDescription(e.target.value)} rows={5} placeholder={t('Product Description')} className="w-full px-4 py-3.5 bg-gray-50 border border-gray-100 rounded-2xl focus:ring-2 focus:ring-blue-500/20 outline-none transition-all text-sm" />
                     </div>
 
                     {/* Inventory & Sales (Stacks on Mobile, Side-by-side on Desktop) */}
