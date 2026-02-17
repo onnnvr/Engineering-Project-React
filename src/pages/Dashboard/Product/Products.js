@@ -123,7 +123,7 @@ export default function Products() {
                       <div className="flex items-center gap-4">
                         <div className="w-12 h-12 rounded-xl bg-gray-100 border border-gray-200 overflow-hidden shrink-0">
                           {product.images?.[0] ? (
-                             <img src={`${URL}${product.images[0].url}`} className="w-full h-full object-cover" alt="" />
+                             <img src={`${product.images[0].url}`} className="w-full h-full object-cover" alt="" />
                           ) : (
                             <div className="w-full h-full flex items-center justify-center text-gray-300 text-lg"><FontAwesomeIcon icon={faBoxOpen} /></div>
                           )}

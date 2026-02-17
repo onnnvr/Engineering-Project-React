@@ -107,7 +107,7 @@ export default function Categories() {
                   <td className="px-6 py-4">
                     <div className="flex items-center gap-3">
                       <div className="w-10 h-10 rounded-xl bg-gray-100 overflow-hidden flex items-center justify-center border group-hover:border-blue-200">
-                        {cat.image ? <img src={`${URL}${cat.image.url}`} className="w-full h-full object-cover" /> : <FontAwesomeIcon icon={faLayerGroup} className="text-gray-400" />}
+                        {cat.image ? <img src={`${cat.image.url}`} className="w-full h-full object-cover" /> : <FontAwesomeIcon icon={faLayerGroup} className="text-gray-400" />}
                       </div>
                       <span className="font-bold text-gray-700">{cat.title}</span>
                     </div>

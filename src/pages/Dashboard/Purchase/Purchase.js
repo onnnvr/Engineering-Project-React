@@ -164,7 +164,7 @@ export default function Purchase() {
                                     <div className="flex gap-4">
                                         <div className="w-16 h-16 rounded-xl overflow-hidden bg-white border flex-shrink-0">
                                             {item.product?.images?.[0] && (
-                                                <img src={`${URL}{item.product.images[0].url}`} className="w-full h-full object-cover" alt="" />
+                                                <img src={`${item.product.images[0].url}`} className="w-full h-full object-cover" alt="" />
                                             )}
                                         </div>
                                         <div className="flex-1 min-w-0">
