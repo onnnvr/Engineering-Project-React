@@ -119,7 +119,7 @@ export default function Categories() {
                   <td className="px-6 py-4 text-right" onClick={e => e.stopPropagation()}>
                     <div className="flex justify-end gap-1">
                       <Link to={`${cat.documentId}`} className="p-2 text-blue-500 hover:bg-blue-50 rounded-lg"><FontAwesomeIcon icon={faPenToSquare} /></Link>
-                      <button onClick={(e) => handleDelete(cat.id, e)} className="p-2 text-red-400 hover:bg-red-50 rounded-lg"><FontAwesomeIcon icon={faTrash} /></button>
+                      <button onClick={(e) => handleDelete(cat.documentId, e)} className="p-2 text-red-400 hover:bg-red-50 rounded-lg"><FontAwesomeIcon icon={faTrash} /></button>
                     </div>
                   </td>
                 </tr>
@@ -143,7 +143,7 @@ export default function Categories() {
                   </div>
                 </div>
                 <div className="flex gap-2" onClick={e => e.stopPropagation()}>
-                   <button onClick={() => handleDelete(cat.id, {stopPropagation:()=>{}})} className="w-9 h-9 flex items-center justify-center text-red-400 bg-red-50 rounded-xl"><FontAwesomeIcon icon={faTrash} className="text-xs" /></button>
+                   <button onClick={() => handleDelete(cat.documentId, {stopPropagation:()=>{}})} className="w-9 h-9 flex items-center justify-center text-red-400 bg-red-50 rounded-xl"><FontAwesomeIcon icon={faTrash} className="text-xs" /></button>
                 </div>
               </div>
             ))
