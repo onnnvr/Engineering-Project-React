@@ -43,7 +43,7 @@ export default function Categories() {
     e.stopPropagation();
     if (window.confirm("Are you sure?")) {
       try {
-        await Axios.delete(`${CATEGORY}/${id}`);
+        await Axios.delete(`${CATEGORIES}/${id}`);
         setPage(1);
         setSearch("");
       } catch (err) { console.log(err); }
