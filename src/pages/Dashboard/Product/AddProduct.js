@@ -125,7 +125,7 @@ export default function AddProduct() {
           categories: selectedCategories,
           title, description, price, barcode, brand, showOnWebsite,
           images: uploadedImageIds,
-          slug: title.replace(/\s+/g, '-').toLowerCase(),
+          slug: `${title.replace(/\s+/g, '-').toLowerCase()}-${Date.now()}`,
           productStatus: "published",
           isTemporary: false,
         },
