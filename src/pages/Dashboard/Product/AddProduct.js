@@ -14,7 +14,7 @@ export default function AddProduct() {
   const [selectedCategories, setSelectedCategories] = useState([]);
   const [categories, setCategories] = useState([]);
   const [description, setDescription] = useState("");
-  const [price, setPrice] = useState("");
+  const [price, setPrice] = useState(0);
   const [barcode, setBarcode] = useState("");
   const [brand, setBrand] = useState("");
   const [showOnWebsite, setShowOnWebsite] = useState(true);
