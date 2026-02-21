@@ -35,7 +35,7 @@ export default function AddProduct() {
   const j = useRef(-1);
 
   useEffect(() => {
-    Axios.get(`${CATEGORIES}`).then((res) => setCategories(res.data.data)).catch(console.log);
+    Axios.get(`${CATEGORIES}?pagination[pageSize]=100`).then((res) => setCategories(res.data.data)).catch(console.log);
     Axios.get('/warehouses').then((res) => setAllWarehouses(res.data.data)).catch(console.log);
   }, []);
 
@@ -287,6 +287,13 @@ export default function AddProduct() {
           </div>
 
           <div className={`bg-white p-6 md:p-8 rounded-3xl border border-gray-100 shadow-sm space-y-6 transition-opacity ${!hasSent ? "opacity-40 grayscale" : "opacity-100"}`}>
+            <div>
+                <label className="text-[10px] font-black text-gray-400 mb-2 block uppercase tracking-widest">{t('Brand')}</label>
+                <div className="relative">
+                    <input value={brand} onChange={(e) => setBrand(e.target.value)} placeholder={t('Nike')} className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl outline-none font-bold" />
+                    <FontAwesomeIcon icon={faTags} className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-300" />
+                </div>
+            </div>
             <div>
                 <label className="text-[10px] font-black text-gray-400 mb-2 block uppercase tracking-widest">{t('Pricing ($)')}</label>
                 <input disabled={!hasSent} type="number" value={price} onChange={(e) => setPrice(e.target.value)} placeholder={t('0.00')} className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl font-black text-blue-600 text-2xl" />
